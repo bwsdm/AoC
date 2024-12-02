@@ -1,2 +1,2 @@
 # AoC
-This will be where I house all my AoC code. Check the branches for each year
+This will be where I house all my AoC code. Check the folders for each year.
