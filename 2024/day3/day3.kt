@@ -57,6 +57,7 @@ fun part2(input: String) {
     var dontMatchesRanges = mutableListOf<Int>()
     var doMatchesRanges = mutableListOf<Int>()
     var workableRanges = mutableListOf<IntRange>()
+    var i = 0
     var j = 0
 
     val dontMatches = dontRegex.findAll(lineList)
@@ -72,14 +73,18 @@ fun part2(input: String) {
 
     println(dontMatchesRanges)
     println(doMatchesRanges)
-    for (i in 0..dontMatchesRanges.size-1) {
+    while(!dontMatchesRanges.lastIndex) {
         if (i == 0) {
             workableRanges.add(0..dontMatchesRanges[i])
+            i++
         } else if (doMatchesRanges[j] > dontMatchesRanges[i]) {
-            continue
+            i++
+        } else if (doMatchesRanges[j] < dontMatchesRanges[i-1]) {
+            j++
         } else {
             workableRanges.add(doMatchesRanges[j]..dontMatchesRanges[i])
             j++
+            i++
         }
     }
 
