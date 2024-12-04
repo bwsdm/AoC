@@ -24,69 +24,69 @@ fun lookAround(fileOutput:MutableList<String>, lineIndex:Int, letterIndex:Int, l
     if (lineIndex == 0 && letterIndex == 0) {
         // dont look up or left
         //println("Dont look up or left")
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
     } else if (lineIndex == lineCount - 1 && letterIndex == 0) {
         // dont look down or left
         //println("Dont look down or left")
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
     } else if (lineIndex == 0 && letterIndex == letterCount - 1) {
         // dont look up or right
         //println("Dont look up or right")
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
+        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft"))
     } else if (lineIndex == lineCount - 1 && letterIndex == letterCount - 1) {
         // dont look right or down
         //println("Dont look right or down")
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft"))
     } else if (lineIndex == 0) {
         // dont look up
         //println("Dont look up")
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft"))
+        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight"))
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
     } else if (letterIndex == 0) {
         // dont look left
         //println("Dont look left")
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight"))
+        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight"))
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
     } else if (lineIndex == lineCount - 1) {
         // dont look down
         //println("Dont look down")
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft"))
+        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight"))
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
     } else if (letterIndex == letterCount - 1) {
         // dont look right
         //println("Dont look right")
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft"))
+        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft"))
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
     } else {
         //println("Else")
-        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft").filterNotNull() ?: emptyList())
-        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight").filterNotNull() ?: emptyList())
+        checkPotential.addAll(listOf(lookUp(fileOutput, lineIndex, letterIndex, letter), "Up"))
+        checkPotential.addAll(listOf(lookDown(fileOutput, lineIndex, letterIndex, letter), "Down"))
+        checkPotential.addAll(listOf(lookLeft(fileOutput, lineIndex, letterIndex, letter), "Left"))
+        checkPotential.addAll(listOf(lookRight(fileOutput, lineIndex, letterIndex, letter), "Right"))
+        checkPotential.addAll(listOf(lookDownLeft(fileOutput, lineIndex, letterIndex, letter), "DownLeft"))
+        checkPotential.addAll(listOf(lookDownRight(fileOutput, lineIndex, letterIndex, letter), "DownRight"))
+        checkPotential.addAll(listOf(lookUpLeft(fileOutput, lineIndex, letterIndex, letter), "UpLeft"))
+        checkPotential.addAll(listOf(lookUpRight(fileOutput, lineIndex, letterIndex, letter), "UpRight"))
     }
     return checkPotential
 }
@@ -162,6 +162,7 @@ fun lookDownRight(fileOutput:MutableList<String>, lineIndex:Int, letterIndex:Int
         return emptyList()
     }
 }
+
 /*
     Get X, get M, get direction, get A, get S
 */
@@ -172,19 +173,14 @@ fun part1(input:String) {
     var lineCount: Int
     var letterCount: Int
     var leads = mutableListOf<Any>()
+    var listLook = mutableListOf<Int>()
     var i: Int = 0
     fileOutput.forEachIndexed { index, line ->
         line.forEachIndexed{ innerIndex, letter ->
             if (letter.toString() == "X") {
                 leads = lookAround(fileOutput, index, innerIndex, fileOutput.size, line.length, "M")
-                while(i < leads.size-2) {
-                    if (leads[i].isNotEmpty()) {
-                        direction = leads[i+1]
-                    }
-                    i+2
-                }
+                i = 0
             }
         }
     }
-    println(leads)
 }
