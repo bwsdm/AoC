@@ -1,5 +1,5 @@
 /*
-  Look for all mul(Int,Int) where Int is a 3 digit Int
+  Look for all mul(Int,Int) where Int is a 1-3 digit Int
 */
 
 import java.io.File
@@ -39,55 +39,29 @@ fun part1(input: String) {
 }
 
 fun part2(input: String) {
-    /*
-        Do calculations until you hit a don't(), when you hit a don't() dont do
-        calculations until you hit a do() and repeat the cycle until the end
-    */
     val lineList = readFile(input)
 
-    /*
-        Find operational ranges 
-    */
-
-    val regex = Regex(pattern = "mul\\([0-9]+,[0-9]+\\)", options = setOf(RegexOption.IGNORE_CASE))
-    val doRegex = Regex(pattern = "do\\(\\)", options = setOf(RegexOption.IGNORE_CASE))
-    val dontRegex = Regex(pattern = "don't\\(\\)", options = setOf(RegexOption.IGNORE_CASE))
+    val regex = Regex(pattern = "mul\\([0-9]+,[0-9]+\\)|do\\(\\)|don't\\(\\)", options = setOf(RegexOption.IGNORE_CASE))
+    val matches = regex.findAll(lineList)
 
     var enabled: Boolean = true
-    var dontMatchesRanges = mutableListOf<Int>()
-    var doMatchesRanges = mutableListOf<Int>()
-    var workableRanges = mutableListOf<IntRange>()
-    var i = 0
-    var j = 0
+    var result = 0
 
-    val dontMatches = dontRegex.findAll(lineList)
-    val doMatches = doRegex.findAll(lineList)
-
-    for (match in dontMatches) {
-        dontMatchesRanges.add(match.range.first)
-    }
-
-    for (match in doMatches) {
-        doMatchesRanges.add(match.range.first)
-    }
-
-    println(dontMatchesRanges)
-    println(doMatchesRanges)
-    while(!dontMatchesRanges.lastIndex) {
-        if (i == 0) {
-            workableRanges.add(0..dontMatchesRanges[i])
-            i++
-        } else if (doMatchesRanges[j] > dontMatchesRanges[i]) {
-            i++
-        } else if (doMatchesRanges[j] < dontMatchesRanges[i-1]) {
-            j++
+    for (match in matches) {
+        if (match.value == "do()"){
+            enabled = true
+        } else if (match.value == "don't()") {
+            enabled = false
         } else {
-            workableRanges.add(doMatchesRanges[j]..dontMatchesRanges[i])
-            j++
-            i++
+            if (enabled) {
+                val numbers = Regex("[0-9]+").findAll(match.value)
+                    .map(MatchResult::value)
+                    .toList()
+        
+                result += numbers[0].toInt() * numbers[1].toInt()
+            }
         }
     }
-
-    println(workableRanges)
+    println(result)
 
 }
