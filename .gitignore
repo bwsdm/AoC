@@ -1,3 +1,7 @@
+# General Stuff
+*.txt
+*.csv
+
 # Kotlin stuffs
 *.jar
 
